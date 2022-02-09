@@ -1,8 +1,15 @@
 package ru.javawebinar.topjava.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 public class MealTo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private final LocalDateTime dateTime;
 
     private final String description;
@@ -27,4 +34,22 @@ public class MealTo {
                 ", excess=" + excess +
                 '}';
     }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public boolean isExcess() {
+        return excess;
+    }
+
+
 }
